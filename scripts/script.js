@@ -9,9 +9,10 @@ var colorDisplay = document.getElementById("colorDisplay");
 var messageDisplay = document.querySelector("#message");
 var h1Display = document.querySelector("h1");
 var resetButton = document.querySelector("#reset");
-var easyButton = document.querySelector("#easyButton");
-var hardButton = document.querySelector("#hardButton");
+var modeButtons = document.querySelectorAll(".mode");
 
+
+init();
 
 resetButton.addEventListener("click", function() {
 	//generate all new colors
@@ -41,25 +42,26 @@ hardButton.addEventListener("click", function() {
 });
 
 colorDisplay.textContent = pickedColor;
+function init() {
+	for (var i = 0; i < squares.length; i++) {
+		//add initial colors to squares
+		squares[i].style.background = colors[i];
 
-for (var i = 0; i < squares.length; i++) {
-	//add initial colors to squares
-	squares[i].style.background = colors[i];
-
-	//add click listeners to squares
-	squares[i].addEventListener("click", function() {
-		//grab color of clicked square
-		var clickedColor = this.style.background;
-		if (clickedColor === pickedColor) {
-			messageDisplay.textContent = "Correct!"
-			h1Display.style.background = clickedColor;
-			changeColors(clickedColor);
-			resetButton.textContent = "Play Again?";
-		} else {
-			this.style.background = "#232323";
-			messageDisplay.textContent = "Try Again?";
-		}
-	});
+		//add click listeners to squares
+		squares[i].addEventListener("click", function() {
+			//grab color of clicked square
+			var clickedColor = this.style.background;
+			if (clickedColor === pickedColor) {
+				messageDisplay.textContent = "Correct!"
+				h1Display.style.background = clickedColor;
+				changeColors(clickedColor);
+				resetButton.textContent = "Play Again?";
+			} else {
+				this.style.background = "#232323";
+				messageDisplay.textContent = "Try Again?";
+			}
+		});
+	}
 }
 
 function resetColors(num) {

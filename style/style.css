@@ -27,6 +27,7 @@ button {
 	color: steelblue;
 	letter-spacing: 1px;
 	font-size: inherit;
+	outline: none;
 	transition: all .3s;
 	--webkit-transition: all .3s;
 	-moz-transition: all 0.3s;
