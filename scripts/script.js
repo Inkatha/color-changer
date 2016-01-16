@@ -57,7 +57,7 @@ for (var i = 0; i < squares.length; i++) {
 			resetButton.textContent = "Play Again?";
 		} else {
 			this.style.background = "#232323";
-			messageDisplay.textContent = "Try Again";
+			messageDisplay.textContent = "Try Again?";
 		}
 	});
 }
@@ -71,9 +71,9 @@ function resetColors(num) {
 	for (var i = 0; i < num; i++) {
 		squares[i].style.background = colors[i];
 	}
-	h1Display.style.background = "#232323";
+	h1Display.style.background = "steelblue";
 	resetButton.textContent = "New Colors";
-	messageDisplay.textContent = "Try Again?";
+	messageDisplay.textContent = "";
 }
 
 function changeColors(color) {
